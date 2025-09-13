@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   nginx:
     image: nginx:1.21.1
@@ -12,6 +10,7 @@ services:
       - php
 
   php:
+    user: "${UID}:${GID}"
     build: ./docker/php
     volumes:
       - ./src:/var/www/
